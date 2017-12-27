@@ -2,7 +2,7 @@ package beginner;
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-public class beginner_1008 {
+public class Beginner_1008 {
     public static void main(String... args){
         Scanner scan = new Scanner(System.in);
         int number = scan.nextInt();

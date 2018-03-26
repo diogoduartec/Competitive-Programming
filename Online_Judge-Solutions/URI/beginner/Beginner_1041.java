@@ -7,6 +7,7 @@ public class Beginner_1041 {
         Scanner scan = new Scanner(System.in);
         float x = scan.nextFloat();
         float y = scan.nextFloat();
+        String teste = scan.n
         if(x>0.0 && y>0.0)
             System.out.println("Q1");
         else if(x<0.0 && y>0.0)

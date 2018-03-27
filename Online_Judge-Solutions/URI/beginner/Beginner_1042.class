@@ -1,0 +1,14 @@
+package beginner;
+
+import java.util.Scanner;
+
+public class Beginner_1042 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int[] vet = new int[3];
+        for(int i=0; i<3; i++){
+            vet[i] = scan.nextInt();
+        }
+        System.out.println("funfa");
+    }
+}

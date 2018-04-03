@@ -35,7 +35,3 @@ The URI Online Judge is a project that is being developed by the Computer Scienc
 |    Beginner   | [1040](https://www.urionlinejudge.com.br/judge/en/problems/view/1040)   | verage 3              |   [java](https://github.com/diogoduartec/Competitive-Programming/blob/master/Online_Judge-Solutions/URI/beginner/Beginner_1040.java)     |
 |    Beginner   | [1041](https://www.urionlinejudge.com.br/judge/en/problems/view/1041)   | Coordinates of a Point|   [java](https://github.com/diogoduartec/Competitive-Programming/blob/master/Online_Judge-Solutions/URI/beginner/Beginner_1041.java)     |
 |    Beginner   | [1042](https://www.urionlinejudge.com.br/judge/en/problems/view/1042)   | Simple Sort           |   [java](https://github.com/diogoduartec/Competitive-Programming/blob/master/Online_Judge-Solutions/URI/beginner/Beginner_1042.java)     |
-
-
-(https://github.com/diogoduartec/Competitive-Programming/blob/master/Online_Judge-Solutions/URI/beginner/Beginner_1005.java)
-(https://github.com/diogoduartec/Competitive-Programming/blob/master/Online_Judge-Solutions/URI/beginner/Beginner_1002.java)

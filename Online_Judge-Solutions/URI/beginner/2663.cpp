@@ -5,6 +5,10 @@ using namespace std;
 
 vector<int> scores;
 
+int compare(int a, int b){
+	return a > b;
+}
+
 int main(){
 	int n, k, score, i;
 	
@@ -15,9 +19,11 @@ int main(){
 		scores.push_back(score);
 	}
 
-	sort(scores.begin(), scores.end());
+	sort(scores.begin(), scores.end(), compare);
 
 	int ans = k;
+
+	//for(i=0; i<k; i++);
 	int last = scores[k-1]; i = k;
 
 	while(scores[i] == last && i<n) ans++, i++;

@@ -50,14 +50,14 @@ int main(){
 
 	for(int i=0; i<k; i++){
 		cin >> command >> row_column;
-		if(command == 'L') grid[row_column-1].assign(m-1, i%4);
+		if(command == 'L') grid[row_column-1].assign(m, i%4);
 		else write_column(row_column-1, i%4);
 	}
 	//print();
 	//printf("%d\n", count(grid[2].begin(), grid[2].end(), 3));
 	make_score();
 	//printf("\n---------------------\ncount - %d\n", count(grid[1].begin(), grid[1].end(), 0));
-	printf("R%d H%d, C%d, P%d", score_player[0], score_player[1], score_player[2], score_player[3]);
+	printf("R%d H%d C%d P%d\n", score_player[0], score_player[1], score_player[2], score_player[3]);
 
 	return 0;
 }

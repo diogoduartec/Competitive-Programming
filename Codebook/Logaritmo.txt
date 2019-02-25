@@ -3,7 +3,7 @@
   ->log10(n) = logaritmo na base 10
 
 *Propriedades
-1. logc(a*b) = logc(a) + logc(b)  -  (logc == logaritmo na base c)
-2. logc(a/b) = logc(a) - logc(b)  -  (logc == logaritmo na base c)
+1. logc(a*b) = logc(a) + logc(b)  |  (logc == logaritmo na base c)
+2. logc(a/b) = logc(a) - logc(b)  |   (logc == logaritmo na base c)
 3. logb(a) = logc(a)/logc(b)
 4. lob(a^n) = n*log(a)

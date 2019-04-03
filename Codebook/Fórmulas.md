@@ -10,8 +10,8 @@
 
 
 ## PROGRESSÕES
-*Fórmula da PA => an = a1 + (n-1)*r
+*Fórmula da PA => an = a1 + (n-1)*r<br>
 *Soma da PA => Sn = n(an + a1)/2
 
-*Fórmula da PG => an = a1 * (q^(n-1))
+*Fórmula da PG => an = a1 * (q^(n-1))<br>
 *Soma da PG => a1(q^n - 1)/(q-1)

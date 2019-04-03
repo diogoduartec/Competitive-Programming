@@ -1,15 +1,15 @@
-***LOGARITMO***
+## LOGARITMO
   ->log(n) = logaritmo natural
   ->log10(n) = logaritmo na base 10
 
-*Propriedades
+#### Propriedades
 1. logc(a*b) = logc(a) + logc(b)  |  (logc == logaritmo na base c)
 2. logc(a/b) = logc(a) - logc(b)  |   (logc == logaritmo na base c)
 3. logb(a) = logc(a)/logc(b)
 4. lob(a^n) = n*log(a)
 
 
-***PROGRESSÕES***
+## PROGRESSÕES
 *Fórmula da PA => an = a1 + (n-1)*r
 *Soma da PA => Sn = n(an + a1)/2
 

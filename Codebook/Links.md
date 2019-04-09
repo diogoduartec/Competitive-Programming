@@ -8,6 +8,7 @@ https://www.geeksforgeeks.org/hierholzers-algorithm-directed-graph/<br>
 
 ## Data Structures
 #### Segment Tree
+https://cp-algorithms.com/data_structures/segment_tree.html#toc-tgt-9<br>
 https://codeforces.com/blog/entry/18051<br>
 https://codeforces.com/blog/entry/15890<br>
 https://www.youtube.com/watch?v=xuoQdt5pHj0

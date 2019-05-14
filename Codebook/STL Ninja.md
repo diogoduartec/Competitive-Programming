@@ -7,4 +7,4 @@
 
 ## upper_bound()
 #### auto it = upper_bound(a.begin(), a.end(), 2);
--> retorna a próxima posição depois da última ocorrência de um número, ou a.end()
+

@@ -1,46 +1,72 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+#define _ ios_base::sync_with_stdio(0);
+#define INF 0x3f3f3f3f
+#define ii pair<int,int>
+#define vii vector<ii>
+#define vvii vector<vii>
+#define vi vector<int>
+#define vvi vector<vi>
+#define eb emplace_back
+#define fs first
+#define sc second
+
+
 using namespace std;
 
-#define INF 0x3f3f3f3f
-#define i64 long long
-#define ii pair<i64, int >
-#define vii vector<ii>
-#define vi vector<int>
-#define MAXN 10000
+/*
+recebe grafo simples
+não direcionado
+calcula a distância de todos os vértices ao Vértice S e retorna -1 se o vértice não for alcançável por S
+*/
 
-vii adj[MAXN];
+int n;// quantidade de vértices
+int m; // quantidade de arestas
+int u , v, w; // aresta U -> V com peso W
+int s, t;// S:origem, T:destino
+vvii adj; // lista de adjacências para um grafo ponderado
 vi dist;
-int n, m;
-void dijkstra(int src, int dest){
-	dist.assign(n+1, INF); dist[src] = 0;
-	priority_queue<ii, vii, greater<ii> > pq; pq.push({0LL, src});
-	while(!pq.empty()){
-		i64 w = pq.top().first; int v = pq.top().second; pq.pop();
-		if(v==dest) return;
-		if(w>dist[v]) continue;
-		for(int i=0; i<adj[v].size(); i++){
-			i64 d = adj[v][i].second; int u = adj[v][i].first;
-			if(dist[u]>d+w){
-				dist[u] = d+w;
-				pq.push({d+w, u});
-			}
-		}
-	}
+
+int dijkstra(int s, int t){
+    dist = vi(n+1,INF);
+    priority_queue<ii, vector<ii>, greater<ii> > pq;
+
+    dist[s] = 0; pq.push(ii(0,s));
+
+    while (!pq.empty()){
+        ii topo = pq.top(); pq.pop();
+        int d = topo.fs, u = topo.sc;
+
+        if (d > dist[u]) continue;
+
+        if (u == t) return dist[u];// otimização. Não é necessário.
+
+        for (auto vw : adj[u]){
+            int v = vw.fs, w = vw.sc;
+
+            if (dist[u] + w < dist[v]){
+                dist[v] = dist[u] + w;
+                pq.push(ii(dist[v], v));
+            }
+        }
+    }
+
+    return dist[t] == INF ? -1 : dist[t] ;
 }
 
-int main(){
-	int v, u, scr, dest;
-	i64 w;
-	while((cin>>n>>m)&&(n||m)){
-		while(m--){
-			cin >> v >> u >> w;
-			adj[v].push_back(ii{u,w});
-		}
-		cin >> scr >> dest;
-		dijkstra(scr, dest);
-		if(dist[dest]==INF) cout << "-1" << endl;
-		else cout <<dist[dest]<< endl;
-		for(int i=0; i<=n; i++) adj[i].clear();
-	}
-	return 0;
+int main(){_
+    while (cin >> n >> m){
+        adj = vvii(n+1);
+
+        while (m--){
+            cin >> u >> v >> w;
+            adj[u].eb(v,w);
+            adj[v].eb(u,w); // porque não é direcionado
+        }
+
+        cin >> s >> t; // É pedido a distância de S a T
+
+        cout << dijkstra(s,t) << endl;
+    }
+
+    return 0;
 }

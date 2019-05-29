@@ -1,4 +1,5 @@
-//LONGEST INCREASING SUBSEQUENCE
+// (LIS) LONGEST INCREASING SUBSEQUENCE
+
 #include<bits/stdc++.h>
 using namespace std;
 

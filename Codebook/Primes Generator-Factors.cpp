@@ -1,3 +1,5 @@
+//GERA OS FATORES PRIMOS DE UM NÚMERO
+
 #include <bits/stdc++.h>
 #define i64 long long
 #define vi64 vector<i64>

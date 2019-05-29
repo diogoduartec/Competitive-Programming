@@ -1,3 +1,5 @@
+//FENWICK TREE
+
 /*
 * create by Diogo Duarte on 26/03/2018
 * Fenwick Tree implementation

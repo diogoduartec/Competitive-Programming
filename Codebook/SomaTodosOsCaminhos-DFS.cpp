@@ -1,8 +1,11 @@
 /*
 
-    *Soma valor do caminho todos para todos*
-    -O grafo e uma arvore, e eu quero saber a soma do caminhos de todos os pares de vertices A B
-    -O truque e fazer um DFS que gera uma arvore que "enraizando" um vertice especifico. Cada vertice dessa arvore guarda o numero de caras que estao abaixo contando com ele msm depois. Dai usando um principo de contagem da pra chegar na seguinte formula: carasQueEstaoAbaixo(v) * oRestoDosVerticesDoGrafo * oPesoDaArestaQueUneOsDoisSubgrafos
+    *Soma valor do caminho TODO para TODOS*
+    -O grafo é uma arvore, e eu quero saber a soma dos caminhos de todos os pares de vertices A B
+    -O truque e fazer um DFS que gera uma arvore que "enraizando" umvertice especifico.
+    Cada vertice dessa arvore guarda o numero de caras que estao abaixo contando com ele
+    msm depois. Dai usando um principo de contagem da pra chegar na seguinte formula:
+    carasQueEstaoAbaixo(v) * oRestoDosVerticesDoGrafo * oPesoDaArestaQueUneOsDoisSubgrafos
 
 */
 
@@ -67,9 +70,11 @@ int main(){
         int ans = 0;
         
         for(auto e:edges){
-            //truque os caras que estao a baixo sempre vao ser menor que os que estao em cima, uma vez que o de cima sempre guarda a soma dos de baixo
+            //truque os caras que estao a baixo sempre vao ser menor que os que estao em cima
+            //uma vez que o de cima sempre guarda a soma dos de baixo
             a = min(tree[e.u], tree[e.v]);
-            ans = ((((e.w * a)%MOD) * (n-a))%MOD + ans)%MOD;//aplicaçao da formula: carasQueEstaoAbaixo(v) * oRestoDosVerticesDoGrafo * oPesoDaArestaQueUneOsDoisSubgrafos
+            ans = ((((e.w * a)%MOD) * (n-a))%MOD + ans)%MOD;//aplicaçao da formula:
+            //carasQueEstaoAbaixo(v) * oRestoDosVerticesDoGrafo * oPesoDaArestaQueUneOsDoisSubgrafos
         }
         cout << ans << endl;
         edges.clear();

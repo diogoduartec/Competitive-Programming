@@ -1,3 +1,5 @@
+//EXPONENCIAÇÃO DE RÁPIDA
+
 #include<bits/stdc++.h>
 #define _ ios_base::sync_with_stdio(0);
 #define i64 long long

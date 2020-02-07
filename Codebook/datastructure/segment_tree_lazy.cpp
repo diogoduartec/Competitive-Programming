@@ -7,88 +7,76 @@ using namespace std;
 #define NEUTRAL 0
 #define ll long long
 #define vi vector<ll>
+#define add emplace_pack
 
-vi tree, a, lazy;
+vi tree, lazy, a;
 
-ll comp(ll x, ll y){
-    return x + y;
-}
-
-ll build(int node, int i, int j){
-    if(i==j) return tree[node] = a[i];
-    build(left(node), i, mid(i,j));
-    build(right(node), mid(i,j)+1, j);
-    return tree[node] = comp(tree[left(node)], tree[right(node)]);
+void build(int node, int i, int j){
+    if(i==j){
+        tree[node] = a[i];
+    }else{
+        build(left(node), i, mid(i,j));
+        build(left(node), mid(i,j)+1, j);
+        tree[node] = tree[left(node)] + tree[right(node)];
+    }
 }
 
 void push(int node, int i, int j){
     tree[node] += lazy[node]*(j-i+1);
     if(i!=j){
-        lazy[left(node)] = lazy[node];
-        lazy[right(node)] = lazy[node];
-        lazy[node] = NEUTRAL;
+        lazy[left(node)] += lazy[node];
+        lazy[right(node)] += lazy[node];
+    }
+    lazy[node] = NEUTRAL;
+}
+
+void update(int node, int i, int j, int l, int r, ll val){
+    push(node, i, j);
+    if(i>r||j<l) return;
+    if(i>=l && j<=r) {
+        lazy[node] += val;
+        push(node, i, j);
+    }else{
+        update(left(node), i, mid(i,j), l, r, val);
+        update(right(node), mid(i,j)+1, j, l, r, val);
+        tree[node] = tree[left(node)]+tree[right(node)];
     }
 }
 
 ll query(int node, int i, int j, int l, int r){
     push(node, i, j);
-    if(i>r || j<l) return NEUTRAL;
-    if(i>=l && j<=r) return tree[node];
+    if(i>r||j<l) return NEUTRAL;
+    if(i>=l && j<=r){
+        return tree[node];
+    }
     ll lans = query(left(node), i, mid(i,j), l, r);
     ll rans = query(right(node), mid(i,j)+1, j, l, r);
-
-    return comp(tree[left(node)], tree[right(node)]);
+    return lans+rans;
 }
-
-void update(int node, int i, int j, int l, int r, ll val){
-    push(node, i, j);
-    if(i>r || j<l) return;
-    if(i>=l && j<=r){
-        lazy[node] = val;
-        push(node, i, j);
-        return;
-    }
-    update(left(node), i, mid(i,j), l, r, val);
-    update(right(node), mid(i,j)+1, j, l, r, val);
-    
-    tree[node] = comp(tree[left(node)], tree[right(node)]);
-}
-
 
 int main(){
-    a = {1, 1, 2, 3, 5};
-    int n = 5;
-    tree = vi(4*n);
-    lazy = vi(4*n);
-    build(1,0,n-1);
+    int t, n, p, q, c, cmd;
+    ll val;
     
-    cout << query(1, 0, n-1, 0, n-1) << endl;
-    update(1, 0, n-1, 0, n-1, 1);
-    cout << query(1, 0, n-1, 0, n-1) << endl;
-    
+    cin >> t;
+    while(t--){
+        cin >> n >> c;
+        tree = vi(4*n+n, 0), lazy = vi(4*n+n, 0);
+        //for(int i=1; i<=n; ++i) cin >> a[i];
+        //build(1,1,n);
+        
+        while(c--){
+            cin >> cmd >> p >> q;
+            if(p>q) swap(p,q);
+            
+            if(cmd==0){
+                cin >> val;
+                update(1,1,n,p,q,val);
+            }else{
+                cout << query(1,1,n,p,q) << endl;
+            }
+        }
+    }
+
     return 0;
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
